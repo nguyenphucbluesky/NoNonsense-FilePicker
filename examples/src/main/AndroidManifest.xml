@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.nononsenseapps.filepicker.examples">
+    >
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <!-- Only needed to create sub directories. -->
@@ -14,6 +14,7 @@
 
         <activity
             android:name=".backbutton.BackHandlingFilePickerActivity"
+            android:exported="false"
             android:label="Override back button"
             android:theme="@style/FilePickerTheme">
             <intent-filter>

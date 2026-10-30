@@ -9,28 +9,39 @@ apply plugin: 'maven-publish'
 apply plugin: 'signing'
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion "28.0.3"
-
-    lintOptions {
-        abortOnError false
+    namespace = "com.nononsenseapps.filepicker"
+    compileSdk {
+        version = release(36) {
+            minorApiLevel = 1
+        }
     }
 
     defaultConfig {
-        minSdkVersion 9
-        targetSdkVersion 28
-        versionCode gitCommitCount
+        minSdk = 26
+        targetSdk = 36
+
+        versionCode 1
         versionName gitTag
         vectorDrawables.useSupportLibrary = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled = true
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.txt")
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
 }
 
 dependencies {
-    implementation 'com.android.support:appcompat-v7:24.2.1'
-    implementation 'com.android.support:support-v4:24.2.1'
-    implementation 'com.android.support:recyclerview-v7:24.2.1'
+    implementation("com.google.android.material:material:1.14.0")
 
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13.2'
 }
 
 task androidSourcesJar(type: Jar) {

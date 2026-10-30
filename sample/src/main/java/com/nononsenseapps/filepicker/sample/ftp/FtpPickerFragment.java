@@ -9,17 +9,18 @@ package com.nononsenseapps.filepicker.sample.ftp;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.content.AsyncTaskLoader;
-import android.support.v4.content.Loader;
-import android.support.v7.util.SortedList;
-import android.support.v7.widget.util.SortedListAdapterCallback;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.loader.content.AsyncTaskLoader;
+import androidx.loader.content.Loader;
+import androidx.recyclerview.widget.SortedList;
+import androidx.recyclerview.widget.SortedListAdapterCallback;
 
 import com.nononsenseapps.filepicker.AbstractFilePickerFragment;
 import com.nononsenseapps.filepicker.sample.R;
@@ -336,7 +337,7 @@ public class FtpPickerFragment extends AbstractFilePickerFragment<FtpFile> {
                 if (folder != null) {
                     refresh(folder);
                 } else {
-                    Toast.makeText(getContext(), R.string.nnf_create_folder_error, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "R.string.nnf_create_folder_error", Toast.LENGTH_SHORT).show();
                 }
             }
         };

@@ -6,12 +6,11 @@
 
 package com.nononsenseapps.filepicker;
 
-
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentManager;
-
 import static com.nononsenseapps.filepicker.Utils.isValidFileName;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentManager;
 
 public class NewFolderFragment extends NewItemFragment {
 

@@ -6,12 +6,13 @@
 
 package com.nononsenseapps.filepicker.sample.multimedia;
 
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.nononsenseapps.filepicker.FilePickerFragment;
@@ -130,7 +131,7 @@ public class MultimediaPickerFragment extends FilePickerFragment {
             // Need to set it to visible because the base code will set it to invisible by default
             vh.icon.setVisibility(View.VISIBLE);
             // Just load the image
-            Glide.with(this).load(file).into((ImageView) vh.icon);
+            Glide.with(requireContext()).load(file).into((ImageView) vh.icon);
         }
     }
 }

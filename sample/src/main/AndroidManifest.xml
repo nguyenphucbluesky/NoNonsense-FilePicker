@@ -6,7 +6,7 @@
   -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.nononsenseapps.filepicker.sample">
+    >
 
     <!-- For SD-card -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -24,6 +24,7 @@
         <!-- Sample app -->
         <activity
             android:name=".NoNonsenseFilePicker"
+            android:exported="true"
             android:label="@string/title_activity_no_nonsense_file_picker">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,12 +35,13 @@
         <!-- Test activity, required to deal with runtime permissions -->
         <activity
             android:name=".NoNonsenseFilePickerTest"
+            android:exported="false"
             android:label="@string/title_activity_no_nonsense_file_picker"/>
 
         <!-- SD-card pickers -->
         <!-- You must define a fileprovider for the sd-card pickers -->
         <provider
-            android:name="android.support.v4.content.FileProvider"
+            android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.provider"
             android:exported="false"
             android:grantUriPermissions="true">
@@ -49,6 +51,7 @@
         </provider>
         <activity
             android:name="com.nononsenseapps.filepicker.FilePickerActivity"
+            android:exported="false"
             android:label="@string/title_activity_no_nonsense_file_picker"
             android:theme="@style/SampleTheme">
             <intent-filter>
@@ -59,6 +62,7 @@
 
         <activity
             android:name=".FilePickerActivity2"
+            android:exported="false"
             android:label="@string/title_activity_no_nonsense_file_picker"
             android:theme="@style/SampleThemeLight">
             <intent-filter>
@@ -69,6 +73,7 @@
 
         <activity
             android:name=".multimedia.MultimediaPickerActivity"
+            android:exported="false"
             android:label="@string/title_activity_no_nonsense_file_picker"
             android:theme="@style/SampleTheme">
             <intent-filter>
@@ -79,6 +84,7 @@
 
         <activity
             android:name=".multimedia.MultimediaPickerActivity2"
+            android:exported="false"
             android:label="@string/title_activity_no_nonsense_file_picker"
             android:theme="@style/SampleThemeLight">
             <intent-filter>
@@ -89,6 +95,7 @@
 
         <activity
             android:name=".root.SUPickerActivity"
+            android:exported="false"
             android:label="@string/title_activity_no_nonsense_file_picker"
             android:theme="@style/SampleThemeLight">
             <intent-filter>
@@ -99,6 +106,7 @@
 
         <activity
             android:name=".root.SUPickerActivity2"
+            android:exported="false"
             android:label="@string/title_activity_no_nonsense_file_picker"
             android:theme="@style/SampleTheme">
             <intent-filter>
@@ -109,6 +117,7 @@
 
         <activity
             android:name=".fastscroller.FastScrollerFilePickerActivity"
+            android:exported="false"
             android:label="@string/title_activity_no_nonsense_file_picker"
             android:theme="@style/SampleThemeLight">
             <intent-filter>
@@ -119,6 +128,7 @@
 
         <activity
             android:name=".fastscroller.FastScrollerFilePickerActivity2"
+            android:exported="false"
             android:label="@string/title_activity_no_nonsense_file_picker"
             android:theme="@style/SampleTheme">
             <intent-filter>
@@ -152,6 +162,7 @@
         <activity
             android:name="com.dropbox.core.android.AuthActivity"
             android:configChanges="orientation|keyboard"
+            android:exported="true"
             android:launchMode="singleTask">
             <intent-filter>
                 <!-- Change this to be db- followed by your app key -->

@@ -9,18 +9,19 @@ package com.nononsenseapps.filepicker.sample.dropbox;
 import android.annotation.SuppressLint;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.content.AsyncTaskLoader;
-import android.support.v4.content.Loader;
-import android.support.v7.util.SortedList;
-import android.support.v7.widget.util.SortedListAdapterCallback;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.loader.content.AsyncTaskLoader;
+import androidx.loader.content.Loader;
+import androidx.recyclerview.widget.SortedList;
+import androidx.recyclerview.widget.SortedListAdapterCallback;
 
 import com.dropbox.core.DbxException;
 import com.dropbox.core.v2.DbxClientV2;
@@ -278,7 +279,7 @@ public class DropboxFilePickerFragment extends AbstractFilePickerFragment<Metada
                 CreateFolderResult createFolderResult =  dropboxClient.files().createFolderV2(path);
                 return createFolderResult.getMetadata();
             } catch (DbxException e) {
-                Log.d(TAG, getString(R.string.nnf_create_folder_error), e);
+                Log.d(TAG, "getString(R.string.nnf_create_folder_error)", e);
                 return null;
             }
         }
@@ -290,7 +291,7 @@ public class DropboxFilePickerFragment extends AbstractFilePickerFragment<Metada
             } else {
                 progressBar.setVisibility(View.INVISIBLE);
                 recyclerView.setVisibility(View.VISIBLE);
-                Toast.makeText(getActivity(), R.string.nnf_create_folder_error,
+                Toast.makeText(getActivity(), "R.string.nnf_create_folder_error",
                         Toast.LENGTH_SHORT).show();
             }
         }

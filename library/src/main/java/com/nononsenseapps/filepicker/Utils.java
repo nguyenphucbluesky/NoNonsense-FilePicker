@@ -1,18 +1,19 @@
 package com.nononsenseapps.filepicker;
 
+import static com.nononsenseapps.filepicker.AbstractFilePickerActivity.EXTRA_ALLOW_MULTIPLE;
+import static com.nononsenseapps.filepicker.AbstractFilePickerActivity.EXTRA_PATHS;
+
 import android.content.Intent;
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.nononsenseapps.filepicker.AbstractFilePickerActivity.EXTRA_ALLOW_MULTIPLE;
-import static com.nononsenseapps.filepicker.AbstractFilePickerActivity.EXTRA_PATHS;
 
 /**
  * Some utility methods

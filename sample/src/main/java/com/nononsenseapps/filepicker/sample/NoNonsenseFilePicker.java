@@ -9,7 +9,6 @@ package com.nononsenseapps.filepicker.sample;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
-import android.databinding.DataBindingUtil;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -34,7 +33,6 @@ import com.nononsenseapps.filepicker.sample.root.SUPickerActivity2;
 
 import java.util.List;
 
-
 public class NoNonsenseFilePicker extends Activity {
 
     // How to handle multiple return data
@@ -48,7 +46,7 @@ public class NoNonsenseFilePicker extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_no_nonsense_file_picker);
+        binding = ActivityNoNonsenseFilePickerBinding.inflate(getLayoutInflater());
 
         binding.buttonSd
                 .setOnClickListener(new View.OnClickListener() {
@@ -135,20 +133,15 @@ public class NoNonsenseFilePicker extends Activity {
 
         // What mode is selected
         final int mode;
-        switch (binding.radioGroup.getCheckedRadioButtonId()) {
-            case R.id.radioDir:
-                mode = AbstractFilePickerFragment.MODE_DIR;
-                break;
-            case R.id.radioFilesAndDirs:
-                mode = AbstractFilePickerFragment.MODE_FILE_AND_DIR;
-                break;
-            case R.id.radioNewFile:
-                mode = AbstractFilePickerFragment.MODE_NEW_FILE;
-                break;
-            case R.id.radioFile:
-            default:
-                mode = AbstractFilePickerFragment.MODE_FILE;
-                break;
+        int checkedRadioButtonId = binding.radioGroup.getCheckedRadioButtonId();
+        if (checkedRadioButtonId == R.id.radioDir) {
+            mode = AbstractFilePickerFragment.MODE_DIR;
+        } else if (checkedRadioButtonId == R.id.radioFilesAndDirs) {
+            mode = AbstractFilePickerFragment.MODE_FILE_AND_DIR;
+        } else if (checkedRadioButtonId == R.id.radioNewFile) {
+            mode = AbstractFilePickerFragment.MODE_NEW_FILE;
+        } else {
+            mode = AbstractFilePickerFragment.MODE_FILE;
         }
 
         i.putExtra(FilePickerActivity.EXTRA_MODE, mode);

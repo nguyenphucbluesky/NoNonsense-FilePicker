@@ -7,14 +7,14 @@
 package com.nononsenseapps.filepicker.sample.dropbox;
 
 import android.app.Activity;
-import android.support.annotation.Nullable;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
 
 import com.dropbox.core.v2.DbxClientV2;
 import com.dropbox.core.v2.files.Metadata;
 import com.nononsenseapps.filepicker.AbstractFilePickerActivity;
 import com.nononsenseapps.filepicker.AbstractFilePickerFragment;
-
 
 public class DropboxFilePickerActivity extends AbstractFilePickerActivity<Metadata> {
     private DropboxHelper dropboxHelper = new DropboxHelper();
